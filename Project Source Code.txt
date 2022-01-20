@@ -1,5 +1,5 @@
 ﻿
-                                                      Aim :- Minny Cricket Game
+                                                      Aim :- Mini Cricket Game
 
 
 #include<iostream>
