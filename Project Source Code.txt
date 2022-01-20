@@ -1,0 +1,133 @@
+﻿
+                                                      Aim :- Minny Cricket Game
+
+
+#include<iostream>
+#include<ctime>
+#include<cstdlib>
+#include<unistd.h>
+using namespace std;
+class Team
+{
+public:
+	int i, r,sum1=0,sum2=0;
+	string p1,b1,p2,b2;
+	string TeamA="RCB" , TeamB="MI";
+	string PlayerA[3]={"Virat Kholi" ," ABD ", "Chahal"};
+	string PlayerB[3]={"Pollard" , "Hardik Pandaya ", "Rohit Sharma"};
+void greet()
+{
+	cout<<"Welcome to Gully Cricket"<<endl;
+	usleep(2000000);
+cout<<"\tPress Enter to Start"<<endl;
+        getchar();
+}
+void displayDetails()
+{
+	cout<<"TeamA :\n "<<endl;
+	for(i=0;i<3;i++)
+	{
+		cout<<PlayerA[i]<<endl;
+	}
+	cout<<"TeamB : \n"<<endl;
+	for(i=0;i<3;i++)
+	{
+		cout<<PlayerB[i]<<endl;
+	}
+}
+void displayBatsmanAndBowler()
+{
+	srand(time(NULL));
+	p1+=PlayerA[rand()%3];
+	srand(time(NULL));
+	b2+=PlayerB[rand()%3];
+	}
+void displayStartFirstInning()
+{
+	cout<<"RCB won the toss and choose to bat"<<endl;
+	cout<<"\n**************Start First Inning************"<<endl;
+	cout<<"\nPress enter to continue"<<endl;
+	getchar();
+	usleep(1000000);
+	cout<<"The batsman from RCB IS : "<<p1 <<endl;
+		cout<<"The bowler from MI is : "<<b2 <<endl;
+	}
+void displayScore()
+{
+	int p[7]={0,1,2,3,4,5,6};
+	srand(time(NULL));
+	for(i=1;i<7;i++)
+	{
+		cout<<"bowl :"<<i<<endl;
+		r=p[rand()%6];
+		cout<<"\nBatsman Hits : "<<r<<endl;
+	sum1+=r;
+	}
+	cout<<"Calculating score \n"<<endl;
+	usleep(1000000);
+	cout<<"\nFist Inning Score : "<<sum1<<endl;
+
+}
+void displayStartSecondInning()
+{
+	cout<<"**********Innings Break********\n"<<endl;
+			usleep(3000000);
+	cout<<"\n**********Start Second Inning*********"<<endl;
+	cout<<"\nPress Enter to continue"<<endl;
+	getchar();
+	int p[7]={0,1,2,3,4,5,6};
+	srand(time(NULL));
+	p2=PlayerB[rand()%3];
+	srand(time(NULL));
+	b2=PlayerA[rand()%3];
+	cout<<"\nFrom MI the batsman is : "<<p2<<endl;
+	cout<<"\nFrom RCB the bowler is : "<<b2<<endl;
+	srand(time(NULL));
+		for(i=1;i<7;i++)
+		{
+			cout<<"bowl :"<<i<<endl;
+			r=p[rand()%6];
+			cout<<"Batsman Hits : "<<r<<endl;
+		sum2+=r;
+		}
+		cout<<"Calculating score \n"<<endl;
+			usleep(1000000);
+		cout<<"\nSecond Inning Score : "<<sum2<<endl;
+cout<<"\nPlease Enter to display final result "<<endl;
+getchar();
+}
+void displayFinalScore()
+{
+cout<<"\nTarget score : "<<sum1<<endl;
+cout<<"\nScore Chased : "<<sum2<<endl;
+}
+void displayWinningTeam()
+{
+if(sum1>sum2)
+{
+	cout<<TeamA<<"won the match"<<endl;
+}
+else if(sum2>sum1)
+{
+	cout<<TeamB<<"won the match"<<endl;
+}
+else
+{
+	cout<<"Tie"<<endl;
+}
+}
+};
+
+int main()
+{
+	Team team;
+	team.greet();
+	team.displayDetails();
+	team.displayBatsmanAndBowler();
+	team.displayStartFirstInning();
+	team.displayScore();
+	team.displayStartSecondInning();
+	team.displayFinalScore();
+	team.displayWinningTeam();
+	return 0 ;
+}
